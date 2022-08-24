@@ -1,23 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Box } from '@mui/material';
+import { Header, Panel, TodoList } from './components/';
 import './App.css';
 
+export type Todo = { id: number; name: string; description: string; checked: boolean };
+
 function App() {
+  const [todoList, setTodoList] = React.useState([
+    { id: 1, name: 'task 1', description: 'test', checked: false },
+    { id: 2, name: 'task 2', description: 'test222', checked: false },
+    { id: 3, name: 'task 3', description: 'test3333333333333333333', checked: false },
+  ]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
+      <Box display="flex" flexDirection="column" width="500px">
+        <Header />
+        <Panel />
+        <TodoList todoList={todoList} />
+      </Box>
     </div>
   );
 }
