@@ -3,8 +3,6 @@ import { Stack, Box, IconButton, Paper, Typography } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Todo } from '../../../App';
 
-
-
 interface TodoItemProps {
   todo: Todo;
 }
