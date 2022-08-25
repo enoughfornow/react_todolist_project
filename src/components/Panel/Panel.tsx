@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import Add from '@mui/icons-material/Add';
 import { TextField, Paper, Button } from '@mui/material';
+import type { Todo } from '../../App';
 
 const DEFAULT_TODO = { name: '', description: '' };
 
-export const Panel = () => {
+interface PanelProps {
+  onAddTodo: ({ name, description }: Omit<Todo, 'id' | 'checked'>) => void;
+}
+
+export const Panel: React.FC<PanelProps> = ({ onAddTodo }) => {
   const [todo, setTodo] = useState(DEFAULT_TODO);
 
   const onClick = () => {
-    console.log('@', todo);
+    onAddTodo(todo);
     setTodo(DEFAULT_TODO);
   };
 
