@@ -2,10 +2,14 @@ import React from 'react';
 
 import { Box, Typography } from '@mui/material';
 
-export const Header = () => (
+interface HeaderProps {
+  todoCount: number;
+}
+
+export const Header: React.FC<HeaderProps> = ({ todoCount }) => (
   <Box textAlign="left">
     <Typography sx={{ fontSize: 35 }} variant="h1" component="h1" gutterBottom>
-      Todo List
+      Todo List {todoCount}
     </Typography>
   </Box>
 );
