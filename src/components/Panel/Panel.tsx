@@ -13,8 +13,10 @@ export const Panel: React.FC<PanelProps> = ({ onAddTodo }) => {
   const [todo, setTodo] = useState(DEFAULT_TODO);
 
   const onClick = () => {
+    if(todo.name !== '' && todo.description !== '') {
     onAddTodo(todo);
     setTodo(DEFAULT_TODO);
+    }
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,7 +39,7 @@ export const Panel: React.FC<PanelProps> = ({ onAddTodo }) => {
       <TextField
         value={todo.name}
         onChange={onChange}
-        label="name"
+        label="title"
         sx={{ width: '300px' }}
         name="name"
       />

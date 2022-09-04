@@ -16,7 +16,9 @@ export const EditTodoItem: React.FC<EditTodoItemProps> = ({ todo, onChangeTodo }
   });
 
   const onClick = () => {
+    if(todo.name !== '' && todo.description !== '') {
     onChangeTodo(editTodo);
+    }
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
