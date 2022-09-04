@@ -38,11 +38,6 @@ export const Panel: React.FC<PanelProps> = ({ onAddTodo }) => {
       onAddTodo(todo);
       setTodo(DEFAULT_TODO);
     }
-
-    if (todo.name !== '' && todo.description !== '') {
-      onAddTodo(todo);
-      setTodo(DEFAULT_TODO);
-    }
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -62,14 +57,6 @@ export const Panel: React.FC<PanelProps> = ({ onAddTodo }) => {
         alignContent: 'center',
         gap: 1,
       }}>
-      <TextField
-        value={todo.name}
-        onChange={onChange}
-        label="title"
-        sx={{ width: '300px' }}
-        name="name"
-      />
-
       {
         <TextField
           value={todo.name}
