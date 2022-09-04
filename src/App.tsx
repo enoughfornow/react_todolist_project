@@ -8,9 +8,12 @@ export type Todo = { id: number; name: string; description: string; checked: boo
 function App() {
   const [editTodoId, setEditTodoId] = React.useState<number | null>(null);
   const [todoList, setTodoList] = React.useState([
-    { id: 1, name: 'task 1', description: 'test', checked: false },
-    { id: 2, name: 'task 2', description: 'test222', checked: false },
-    { id: 3, name: 'task 3', description: 'test3333333333333333333', checked: true },
+    {
+      id: 1,
+      name: 'react & material/ui project',
+      description: 'w/o redux/context',
+      checked: false,
+    },
   ]);
 
   const onEditTodo = (id: Todo['id']) => {

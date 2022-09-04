@@ -16,7 +16,9 @@ export const EditTodoItem: React.FC<EditTodoItemProps> = ({ todo, onChangeTodo }
   });
 
   const onClick = () => {
+   if(todo.name !== '' && todo.description !== '') {
     onChangeTodo(editTodo);
+   }
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,7 +38,7 @@ export const EditTodoItem: React.FC<EditTodoItemProps> = ({ todo, onChangeTodo }
         alignContent: 'center',
         gap: 1,
       }}>
-      <TextField value={editTodo.name} onChange={onChange} label="name" name="name" />
+      <TextField value={editTodo.name} onChange={onChange} label="task" name="name" />
       <TextField
         value={editTodo.description}
         onChange={onChange}
