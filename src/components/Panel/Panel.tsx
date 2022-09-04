@@ -5,7 +5,7 @@ import type { Todo } from '../../App';
 
 const DEFAULT_TODO = { name: '', description: '' };
 
-const useValidation = (todo:any, validations:any) => {
+const useValidation = (todo: any, validations: any) => {
   const [isEmpty, setIsEmpty] = React.useState(true);
   const [minLengthError, setMinLengthError] = React.useState(false);
   React.useEffect(() => {
@@ -34,17 +34,15 @@ export const Panel: React.FC<PanelProps> = ({ onAddTodo }) => {
   const [todo, setTodo] = useState(DEFAULT_TODO);
 
   const onClick = () => {
-<<<<<<< HEAD
-    if(todo.name !== '' && todo.description !== '') {
-    onAddTodo(todo);
-    setTodo(DEFAULT_TODO);
+    if (todo.name !== '' && todo.description !== '') {
+      onAddTodo(todo);
+      setTodo(DEFAULT_TODO);
     }
-=======
-   if(todo.name !== '' && todo.description !== '') {
-    onAddTodo(todo);
-    setTodo(DEFAULT_TODO);
-   } 
->>>>>>> b15fe94a676a38d9e7fbd81677202c0e6103e401
+
+    if (todo.name !== '' && todo.description !== '') {
+      onAddTodo(todo);
+      setTodo(DEFAULT_TODO);
+    }
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -64,7 +62,6 @@ export const Panel: React.FC<PanelProps> = ({ onAddTodo }) => {
         alignContent: 'center',
         gap: 1,
       }}>
-<<<<<<< HEAD
       <TextField
         value={todo.name}
         onChange={onChange}
@@ -72,7 +69,7 @@ export const Panel: React.FC<PanelProps> = ({ onAddTodo }) => {
         sx={{ width: '300px' }}
         name="name"
       />
-=======
+
       {
         <TextField
           value={todo.name}
@@ -82,7 +79,7 @@ export const Panel: React.FC<PanelProps> = ({ onAddTodo }) => {
           name="name"
         />
       }
->>>>>>> b15fe94a676a38d9e7fbd81677202c0e6103e401
+
       <TextField
         value={todo.description}
         onChange={onChange}
