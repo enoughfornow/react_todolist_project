@@ -5,6 +5,27 @@ import type { Todo } from '../../App';
 
 const DEFAULT_TODO = { name: '', description: '' };
 
+const useValidation = (todo:any, validations:any) => {
+  const [isEmpty, setIsEmpty] = React.useState(true);
+  const [minLengthError, setMinLengthError] = React.useState(false);
+  React.useEffect(() => {
+    for (const validation in validations) {
+      switch (validation) {
+        case 'minLength':
+          todo.length < validations[validation]
+            ? setMinLengthError(true)
+            : setMinLengthError(false);
+          break;
+        case 'isEmpty':
+          todo ? setIsEmpty(false) : setIsEmpty(true);
+      }
+    }
+  }, [todo]);
+  return {
+    isEmpty,
+    minLengthError,
+  };
+};
 interface PanelProps {
   onAddTodo: ({ name, description }: Omit<Todo, 'id' | 'checked'>) => void;
 }
@@ -13,10 +34,17 @@ export const Panel: React.FC<PanelProps> = ({ onAddTodo }) => {
   const [todo, setTodo] = useState(DEFAULT_TODO);
 
   const onClick = () => {
+<<<<<<< HEAD
     if(todo.name !== '' && todo.description !== '') {
     onAddTodo(todo);
     setTodo(DEFAULT_TODO);
     }
+=======
+   if(todo.name !== '' && todo.description !== '') {
+    onAddTodo(todo);
+    setTodo(DEFAULT_TODO);
+   } 
+>>>>>>> b15fe94a676a38d9e7fbd81677202c0e6103e401
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,6 +64,7 @@ export const Panel: React.FC<PanelProps> = ({ onAddTodo }) => {
         alignContent: 'center',
         gap: 1,
       }}>
+<<<<<<< HEAD
       <TextField
         value={todo.name}
         onChange={onChange}
@@ -43,6 +72,17 @@ export const Panel: React.FC<PanelProps> = ({ onAddTodo }) => {
         sx={{ width: '300px' }}
         name="name"
       />
+=======
+      {
+        <TextField
+          value={todo.name}
+          onChange={onChange}
+          label="title"
+          sx={{ width: '300px' }}
+          name="name"
+        />
+      }
+>>>>>>> b15fe94a676a38d9e7fbd81677202c0e6103e401
       <TextField
         value={todo.description}
         onChange={onChange}
