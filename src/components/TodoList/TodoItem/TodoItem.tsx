@@ -48,9 +48,11 @@ export const TodoItem: React.FC<TodoItemProps> = ({
         <IconButton onClick={() => onEditTodo(todo.id)} color="success" area-label="edit">
           <Edit />
         </IconButton>
-        <IconButton onClick={() => onDeleteTodo(todo.id)} color="error" area-label="delete">
-          <Delete />
-        </IconButton>
+        {todo.id > 1 && (
+          <IconButton onClick={() => onDeleteTodo(todo.id)} color="error" area-label="delete">
+            <Delete />
+          </IconButton>
+        )}
       </Box>
     </Paper>
   );
