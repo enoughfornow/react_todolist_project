@@ -5,27 +5,6 @@ import type { Todo } from '../../App';
 
 const DEFAULT_TODO = { name: '', description: '' };
 
-const useValidation = (todo: any, validations: any) => {
-  const [isEmpty, setIsEmpty] = React.useState(true);
-  const [minLengthError, setMinLengthError] = React.useState(false);
-  React.useEffect(() => {
-    for (const validation in validations) {
-      switch (validation) {
-        case 'minLength':
-          todo.length < validations[validation]
-            ? setMinLengthError(true)
-            : setMinLengthError(false);
-          break;
-        case 'isEmpty':
-          todo ? setIsEmpty(false) : setIsEmpty(true);
-      }
-    }
-  }, [todo]);
-  return {
-    isEmpty,
-    minLengthError,
-  };
-};
 interface PanelProps {
   onAddTodo: ({ name, description }: Omit<Todo, 'id' | 'checked'>) => void;
 }

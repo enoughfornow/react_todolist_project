@@ -20,6 +20,9 @@ function App() {
     setEditTodoId(id);
   };
   const onDeleteTodo = (id: Todo['id']) => {
+    if (id === 1) {
+      return todoList;
+    }
     setTodoList(todoList.filter((todo) => todo.id !== id));
   };
   const onAddTodo = ({ name, description }: Omit<Todo, 'id' | 'checked'>) => {
